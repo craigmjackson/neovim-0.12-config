@@ -1,0 +1,108 @@
+# NeoVim Configuration optimized for 0.12+
+
+## Structure
+- **init.lua** Main entrypoint
+- **ftplugin/** Filetype plugin directory auto-loaded by NeoVim for each filetype below
+  - **java.lua** Specialized configuration for Java using Eclipse's jdtls
+- **lua/**
+  - **autocomplete.lua** Autocomplete settings and autocommands
+  - **autopairs.lua** Automatically insert closing character for {}, (), "", '', <>, []
+  - **breadcrumbs.lua** Provides breadcrumbs at the top of the window to indicate code position
+  - **diagnostics.lua** LSP Diagnostic settings and autocommands
+  - **filemanager.lua** Nvim-Tree file manager settings
+  - **formatting.lua** Set automatic formatting settings
+  - **git.lua** Configures sign column to display git signs
+  - **highlight.lua** Configured highlighting settings for searching, yanking, and TODOs
+  - **icons.lua** Sets up nvim-web-devicons for nerdfont-capable setups
+  - **indentation.lua** Sets up defaults for indentation and sets up guess-indent to handle all other cases
+  - **inlay_hints.lua** Sets up inlay hint settings for LSP to provide type-hints
+  - **picker.lua** Sets up picker configuration and keymaps
+  - **plugins.lua** Handles plugin installation only if the plugin sites are reachable
+  - **scrollbar.lua** Adds a scrollbar to the right which will identify vertical location in the file
+  - **statusline.lua** Adds a status line to bottom of the window
+  - **tabs.lua** Adds tabs to the top of the window for each opened file buffer
+  - **theme.lua** Sets the theme (currently catppuccin-macchiato)
+  - **zenmode.lua** Adds a zen mode to hide the sign column, status bar, scrollbar, tabs, and breadcrumbs
+  - **languages/**
+    - **bash.lua** Adds bash language support using bashls
+    - **c_cpp.lua** Adds C/C++ language support using clangd
+    - **csharp.lua** Adds C# language support using roslyn
+    - **css.lua** Adds CSS language support using cssls
+    - **go.lua** Adds Go language support using gopls
+    - **html.lua** Adds HTML language support using html language server
+    - **javascript.lua** Adds JavaScript language support using vtsls
+    - **json.lua** Adds JSON language support using jsonls
+    - **lua.lua** Adds Lua language support using lua_ls and lazydev for NeoVim-specific symbols
+    - **markdown.lua** Adds Markdown language support using render-markdown
+    - **php.lua** Adds PHP language support using Intelephense
+    - **python.lua** Adds Python language support using basedpyright
+    - **rust.lua** Adds Rust language support using rust-analyzer
+    - **sql.lua** Adds SQL language support using sqlls
+    - **toml.lua** Adds TOML language support using tombi
+    - **vue.lua** Adds Vue.js language support using vue_ls
+    - **yaml.lua** Adds YAML language support using yamlls
+
+## Dependencies
+This configuration will not bother you if an optional dependency is not satisfied, such as a formatter or a language server.
+
+### Required dependencies
+- **Neovim 0.12+**
+  - https://neovim.io/
+- **Node.js 20+**
+  - https://nodejs.org/en
+- **Git**
+  - https://git-scm.com/
+
+### Optional dependencies
+- **A Nerd Font** For fancy icons in your terminal
+  - https://www.nerdfonts.com/
+- **stylua** For LUA formatting
+  - https://github.com/JohnnyMorganz/StyLua
+- **black** For Python formatting
+  - https://github.com/psf/black
+- **prettier** For JavaScript, Vue.js, CSS, HTML, Markdown, JSON, and YAML formatting
+  - https://github.com/prettier/prettier
+- **shfmt** For Bash shell script formatting
+  - https://github.com/patrickvane/shfmt
+- **clang-format** For C/C++ formatting
+  - https://llvm.org/ or `npm -g install clang-format`
+- **csharpier** For C# formatting
+  - https://github.com/belav/csharpier
+- **gofumpt** For Go formatting
+  - https://github.com/mvdan/gofumpt
+- **php_cs_fixer** For PHP formatting
+  - https://github.com/PHP-CS-Fixer/PHP-CS-Fixer
+- **rustfmt** For Rust formatting
+  - https://github.com/rust-lang/rustfmt
+- **sql_formatter** For SQL formatting
+  - https://github.com/sql-formatter-org/sql-formatter
+- **taplo** For TOML formatting
+  - https://taplo.tamasfe.dev/
+- **bash-language-server** For Bash language support
+  - https://github.com/bash-lsp/bash-language-server
+- **clangd** For C/C++ language support
+  - https://llvm.org/ or `pacman -S clang` or `apt install clangd`
+- **roslyn** For C# language support
+  - https://github.com/dotnet/vscode-csharp
+- **vscode-langservers-extracted** For CSS, HTML, JSON language support
+  - `npm -g install vscode-langservers-extracted`
+- **gopls** For Go language support
+  - https://go.dev/gopls/
+- **@vue/language-server** and **@vue/typescript-plugin** and **@vtsls/language-server** For Vue.js language support
+  - `npm -g install @vue/language-server @vue/typescript-plugin @vtsls/language-server`
+- **vtsls/language-server** For JavaScript language support
+  - `npm -g install @vtsls/language-server`
+- **lua-language-server** For Lua language support
+  - https://github.com/LuaLS/lua-language-server
+- **intelephense** For PHP language support
+  - `npm -g install intelephense`
+- **basedpyright** For Python language support
+  - https://github.com/detachhead/basedpyright
+- **rust-analyzer** For Rust language support
+  - https://github.com/rust-lang/rust-analyzer
+- **sql-language-server** For SQL language support
+  - `npm -g install sql-language-server`
+- **tombi** For TOML language support
+  - https://github.com/tombi-toml/tombi
+- **yaml-language-server** For YAML language support
+  - https://github.com/redhat-developer/yaml-language-server

@@ -18,5 +18,15 @@ if check_url_simple("https://github.com/neovim") then
     { src = "https://github.com/Bekaboo/dropbar.nvim" },
     { src = "https://github.com/akinsho/bufferline.nvim" },
     { src = "https://github.com/stevearc/conform.nvim" },
+    { src = "https://github.com/petertriho/nvim-scrollbar" },
+    { src = "https://github.com/NMAC427/guess-indent.nvim" },
+    { src = "https://github.com/folke/zen-mode.nvim" },
+    { src = "https://github.com/sitiom/nvim-numbertoggle" },
+    { src = "https://github.com/seblyng/roslyn.nvim" },
+  }, { confirm = false })
+end
+if check_url_simple("https://codeberg.org/mfussenegger") then
+  vim.pack.add({
+    { src = "https://codeberg.org/mfussenegger/nvim-jdtls.git" },
   }, { confirm = false })
 end
