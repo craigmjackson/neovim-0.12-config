@@ -21,39 +21,32 @@ pcall(function()
       },
     },
   })
-  -- Enable the server globally
   vim.lsp.enable("gopls")
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.go",
     callback = function()
       local win_id = 0
       local offset_encoding = "utf-8"
-      -- 1. Fetch the active gopls client instance
       local clients = vim.lsp.get_clients({ bufnr = 0, name = "gopls" })
       if next(clients) == nil then
-        return -- No active gopls client found, exit early
+        return
       end
       local gopls_client = clients[1]
       offset_encoding = gopls_client.offset_encoding or "utf-8"
-      -- 2. Generate and extend the range parameters safely
       local base_params = vim.lsp.util.make_range_params(win_id, offset_encoding)
       local params = vim.tbl_deep_extend("force", base_params, {
         context = { only = { "source.organizeImports" } },
       })
-      -- 3. Synchronously request code actions from gopls
       local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 1000)
       for _, res in pairs(result or {}) do
         for _, r in pairs(res.result or {}) do
           if r.edit then
             vim.lsp.util.apply_workspace_edit(r.edit, offset_encoding)
           elseif r.command then
-            -- FIXED: Replaced deprecated execute_command API call with the
-            -- standard, future-proof client request handler invocation.
             gopls_client:request("workspace/executeCommand", r.command, nil, 0)
           end
         end
       end
-      -- 4. Standardize code formatting
       vim.lsp.buf.format({ async = false })
     end,
   })

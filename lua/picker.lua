@@ -22,11 +22,8 @@ pcall(function()
         vim.cmd("edit " .. filename_with_path)
       end
     end
-    -- Fuzzy find for file in the project
     vim.keymap.set("n", "<leader>sf", ":Pick files<cr>", { noremap = true })
-    -- Fuzzy find for content in the project
     vim.keymap.set("n", "<leader>sg", ":Pick grep_live<cr>", { noremap = true })
-    -- Fuzzy find NeoVim config files
     vim.keymap.set("n", "<leader>sn", pick_neovim_config, { noremap = true })
   end
 end)

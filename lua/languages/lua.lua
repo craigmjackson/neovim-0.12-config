@@ -1,4 +1,3 @@
--- neovim lsp integration
 pcall(function()
   local lazydev = require("lazydev")
   if lazydev then
@@ -9,8 +8,6 @@ local lazydev_ok, lazydev = pcall(require, "lazydev")
 if lazydev_ok then
   lazydev.setup()
 end
-
--- lua_ls
 pcall(function()
   vim.lsp.enable({ "lua_ls" })
 end)

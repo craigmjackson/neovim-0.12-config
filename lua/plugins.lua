@@ -3,8 +3,6 @@ local function check_url_simple(url)
   local success = (vim.v.shell_error == 0)
   return success
 end
-
--- Install plugins if site is reachable
 if check_url_simple("https://github.com/neovim") then
   vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig" },

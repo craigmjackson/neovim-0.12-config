@@ -6,7 +6,7 @@ pcall(function()
     settings = {
       javascript = {
         inlayHints = {
-          parameterNames = { enabled = "all" }, -- Options: "none", "literals", "all"
+          parameterNames = { enabled = "all" },
           parameterTypes = { enabled = true },
           variableTypes = { enabled = true },
           propertyDeclarationTypes = { enabled = true },

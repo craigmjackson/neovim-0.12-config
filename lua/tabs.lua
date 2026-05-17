@@ -14,14 +14,11 @@ pcall(function()
     })
   end
   vim.keymap.set("n", "<leader>b", ":BufferLineGoToBuffer ", { desc = "Open [B]uffer (tab) number", noremap = true })
-  -- Go to next buffer with <Space> <Tab>
   vim.keymap.set("n", "<leader><Tab>", ":BufferLineCycleNext<CR>", { desc = "Cycle next tab", noremap = true })
-  -- Go to previous buffer with <Space> <Shift-Tab>
   vim.keymap.set(
     "n",
     "<leader><Shift-Tab>",
     ":BufferLineCyclePrev<CR>",
     { desc = "Cycle previous tab", noremap = true }
   )
-  -- Close current buffer with :bd
 end)
