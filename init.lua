@@ -82,6 +82,8 @@ require("autopairs")
 require("indentation")
 -- Zen mode
 require("zenmode")
+-- Hlslens
+require("hls_lens")
 -- Languages
 require("languages.lua")
 require("languages.rust")

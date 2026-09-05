@@ -21,6 +21,7 @@ if check_url_simple("https://github.com/neovim") then
     { src = "https://github.com/folke/zen-mode.nvim" },
     { src = "https://github.com/sitiom/nvim-numbertoggle" },
     { src = "https://github.com/seblyng/roslyn.nvim" },
+    { src = "https://github.com/kevinhwang91/nvim-hlslens" }
   }, { confirm = false })
 end
 if check_url_simple("https://codeberg.org/mfussenegger") then
